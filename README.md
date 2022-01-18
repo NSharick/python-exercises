@@ -1,0 +1,1 @@
+This repository is for python exercises and practice
