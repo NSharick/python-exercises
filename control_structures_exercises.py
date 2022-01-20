@@ -68,7 +68,7 @@ x = int(x)
 for n in range(51):
     if n % 2 == 0:
         continue
-    if n == x:
+    elif n == x:
         print(f'Yikes! Skipping number: {n}')
     else:
         print(f'Here is an odd number: {n}')
@@ -124,14 +124,46 @@ grd = input('Enter a numerical grade from 0 - 100:')
 grd = int(grd)
 if grd in range(99, 101):
     print('A+')
-elif grd in range(89, 99):
+elif grd in range(90, 99):
     print('A')
-elif grd in range(80, 88):
+if grd in range(88, 90):
+    print('A-')
+if grd in range(86, 88):
+    print('B+')
+elif grd in range(82, 86):
     print('B')
-elif grd in range(67, 80):
+elif grd in range(80, 82):
+    print('B-')
+elif grd in range(78, 80):
+    print('C+')
+elif grd in range(69, 78):
     print('C')
-elif grd in range(60, 67):
+elif grd in range(67, 69):
+    print('C-')
+elif grd in range(65, 67):
+    print('D+')
+elif grd in range(62, 65):
     print('D')
+elif grd in range(60, 62):
+    print('D-')
 elif grd in range(0, 60):
     print('F') 
-    
+
+
+#6
+books = [{'title': 'Extreme Ownership' , 'author': 'Jocko Wilnik', 'genre': 'leadership'},
+         {'title': 'Grit', 'author': 'Angela Duckworth', 'genre': 'popular applied psychology'},
+         {'title': 'At the grave of the unknown fisherman' , 'author': 'John Gierach', 'genre': 'sports and outdoors'},
+         {'title': 'The Naturalist', 'author': 'Darrin Lunde' , 'genre': 'biography'}]
+
+for book in books:
+    print(f"title: {book['title']}, author: {book['author']}, genre: {book['genre']}")
+
+
+x = input('Enter a genre:')
+for book in books:
+    if x in book['genre']:
+        print(f"Title: {book['title']}, Author: {book['author']} ")
+
+
+
