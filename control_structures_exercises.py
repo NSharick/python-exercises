@@ -9,6 +9,7 @@ if today_is == 'mon':
 else:
     print('Today is not Monday')
 
+
 #1b
 #possible inputs ('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun')
 today_is = input('Enter a three character day of the week:')
@@ -17,6 +18,16 @@ if today_is in ('sat', 'sun'):
     print('Its the weekend')
 else:
     print('Its a weekday')
+
+##from lesson review -- written this way the statement has better input control by switching the inpur to all lower and only looking at the letter that the input starts with
+today_is = input('Enter a three character day of the week:')
+
+if today_is.lower().startswith('s'):
+    print('weekend')
+else:
+    print('weekday')
+
+
 
 #1c
 hours_worked_in_week = 50
@@ -27,6 +38,18 @@ if hours_worked_in_week <= 40:
 else:
     weeks_paycheck = (hours_worked_in_week * hourly_rate) + ((hours_worked_in_week - 40) * (hourly_rate / 2))
 print(weeks_paycheck) 
+
+##from lesson review -- writing the statement like this makes it easyer to read by defining all the variables seperately
+if hours_worked_in_week <= 40:
+    paycheck = hours_worked_in_week * hourly_rate
+else:
+    overtime_hours = hours_worked_in_week - 40
+    overtime_pay = overtime_hours * 1.5 * hourly_rate
+    base_pay = 40 * hourly_rate
+    paycheck = base_pay + overtime_pay
+
+print(paycheck)
+
 
 #2a
 i = 5
@@ -54,14 +77,17 @@ while b >= 5:
     print(b)
     b -= 5
 
+
 #2b
 n = input("enter a positive integer:")
 n = int(n)
 for number in range(1, 11):
     print(f'{n} X {number} = {n * number}')
 
+
 for number in range(1, 10):
     print(str(number) * number)
+
 
 #2c
 x = input('Enter a number between 1 and 50:')
@@ -73,6 +99,22 @@ for n in range(51):
         print(f'Yikes! Skipping number: {n}')
     else:
         print(f'Here is an odd number: {n}')
+
+## from lesson review -- added more input control with .isdigit and making sure the input is an odd number before calling 
+while True:
+    posited_num = input('Please insert an odd number between 1 and 50: ')
+    if posited_num.isdigit():
+        if int(posited_num) % 2 == 1 and int(posited_num) <= 50:
+            break
+
+posited_num = int(posited_num)
+
+for num in range(1, 50, 2):
+    if num == posited_num:
+        print('Yikes! skipping number: ', num)
+    else:
+        print('Here is an odd number: ', num)
+
 
 #2d
 x = input('Enter a positive whole number:')
@@ -88,6 +130,7 @@ while y >= 1:
     print(y)
     y-= 1
 
+
 #3
 for x in range(1, 101):
     if x % 3 == 0 and x % 5 == 0:
@@ -99,12 +142,14 @@ for x in range(1, 101):
     else:
         print(x)
 
+
 #4
 x = input('What number would you like to go up to?:')
 x = int(x)
 print('Here is your table!')
 for i in range(1, x+1):
     print(i, '|', i**2, '|', i**3)
+
 
 #5
 grd = input('Enter a numerical grade from 0 - 100:')
