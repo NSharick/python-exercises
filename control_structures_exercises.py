@@ -1,14 +1,17 @@
 # control structures exercises
 
 #1a
-the_day_is_monday = True
+#possible inputs ('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun')
+today_is = input('Enter a three character day of the week:')
 
-if the_day_is_monday:
+if today_is == 'mon':
     print('Today is Monday')
+else:
+    print('Today is not Monday')
 
 #1b
 #possible inputs ('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun')
-today_is = 'wed'
+today_is = input('Enter a three character day of the week:')
 
 if today_is in ('sat', 'sun'):
     print('Its the weekend')
@@ -52,3 +55,83 @@ while b >= 5:
     b -= 5
 
 #2b
+n = 7
+for number in range(1, 11):
+    print(f'{n} X {number} = {n * number}')
+
+for number in range(1, 10):
+    print(str(number) * number)
+
+#2c
+x = input('Enter a number between 1 and 50:')
+x = int(x)
+for n in range(51):
+    if n % 2 == 0:
+        continue
+    if n == x:
+        print(f'Yikes! Skipping number: {n}')
+    else:
+        print(f'Here is an odd number: {n}')
+
+#2d
+x = input('Enter a positive whole number:')
+x = int(x)
+i = 0
+while i <= x:
+    print(i)
+    i += 1
+
+y = input('Enter a positive integer:')
+y = int(y)
+while y >= 1:
+    print(y)
+    y-= 1
+
+#3
+for x in range(1, 101):
+    if x % 3 == 0 and x % 5 == 0:
+        print('fizzbuzz')
+    elif x % 3 == 0:
+        print('fizz')
+    elif x % 5 ==0:
+        print('buzz')
+    else:
+        print(x)
+
+#4
+x = input('What number would you like to go up to?:')
+x = int(x)
+print('Here is your table!')
+for i in range(1, x+1):
+    print(i, '|', i**2, '|', i**3)
+
+#5
+grd = input('Enter a numerical grade from 0 - 100:')
+grd = int(grd)
+if grd in range(88, 101):
+    print('A')
+elif grd in range(80, 88):
+    print('B')
+elif grd in range(67, 80):
+    print('C')
+elif grd in range(60, 67):
+    print('D')
+elif grd in range(0, 60):
+    print('F') 
+
+
+grd = input('Enter a numerical grade from 0 - 100:')
+grd = int(grd)
+if grd in range(99, 101):
+    print('A+')
+elif grd in range(89, 99):
+    print('A')
+elif grd in range(80, 88):
+    print('B')
+elif grd in range(67, 80):
+    print('C')
+elif grd in range(60, 67):
+    print('D')
+elif grd in range(0, 60):
+    print('F') 
+    
