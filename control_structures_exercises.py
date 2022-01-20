@@ -55,7 +55,8 @@ while b >= 5:
     b -= 5
 
 #2b
-n = 7
+n = input("enter a positive integer:")
+n = int(n)
 for number in range(1, 11):
     print(f'{n} X {number} = {n * number}')
 
