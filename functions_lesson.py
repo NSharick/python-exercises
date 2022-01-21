@@ -133,6 +133,8 @@ sayhello(name='Nathan')
 
 
 ## Docstrings ##
+#is a way that we can add extra info about what we are doing with the function. 
+#As seen below it wont show in the function call results but will be available with a "shift+tab"
 def sayhello(name="Innis"):
     "Provides a friendly greeting."
     return f"Hello, {name}!"
@@ -146,18 +148,21 @@ def sayhello(name="Innis"):
 # - global and local scope
 
 # TODO: look at the example below. What do expect will happen when you run it?
+#this will not run because the 'x' only exists within the function of 'f()'
 def f():
     x = 123
 f()
 print(x)
 
 # TODO: look at the example below. What do expect will happen when you run it?
+#this one includes a global variable and will call correctly because it knows where to pull the variable from. 
 x = 123
 def f():
     print(x)
 f()
 
 # TODO: look at the example below. What do expect will happen when you run it?
+#this will return 13 because it is reassigning the global variable within the function 
 x = 123
 def f(x):
     return x + 1
@@ -166,6 +171,7 @@ print(f(12))
 # TODO: What is the difference between local and global scope? Which is preferred?
 
 # TODO: Take a look at the code below. Before running it, think about what you would expect to happen. Explain step by step how the python code is executing.
+#this will return 42 twice because the function does not reassign the variable x outside of the function.
 def changeit(x):
     x = x + 1
 
@@ -199,6 +205,9 @@ def increment(n):
     return n + 1
 # same as
 increment = lambda n: n + 1
+#Lambda structure -- 'lambda' 'the thing' : 'what the thing shouold do'. 
+#The above is still considered a 'function' by python.
+
 
 # Use case: sorting (min, max)
 #
@@ -213,6 +222,11 @@ students = [
 ]
 
 # sort by name
+#'sorted()' -- default function to return a sorted list
+#'students' -- represents the list of dictionaries
+#'key=' is part of the sorted() function
+#'lambda s: s["name"] -- this is the lambda function that replaces the addition of an outside function to define how to sort the list of dictionaries
+ 
 sorted(students, key=lambda s: s["name"])
 
 # TODO: write the code necessary to sort by grade
