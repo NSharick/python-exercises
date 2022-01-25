@@ -117,13 +117,13 @@ type(handle_commas('1,000,000'))
 def get_letter_grade(num_grade):
     #the if statement checks the entered argument (number grade) against the different number ranges
     #and returns the associated string value when it finds a match
-    if num_grade in (90, 101):
+    if num_grade in range(90, 101):
         return 'A'
-    elif num_grade in (80, 90):
+    elif num_grade in range(80, 90):
         return 'B'
-    elif num_grade in (70, 80):
+    elif num_grade in range(70, 80):
         return 'C'
-    elif num_grade in (60, 70):
+    elif num_grade in range(60, 70):
         return 'D'
     else:
         return 'F'
@@ -132,6 +132,7 @@ def get_letter_grade(num_grade):
 get_letter_grade(80)
 get_letter_grade(90)
 get_letter_grade(43)
+get_letter_grade(93)
 
 
 ##9##
@@ -189,3 +190,42 @@ def cumulative_sum(numlist):
 cumulative_sum([1, 2, 3])
 cumulative_sum([1, 2, 3, 4, 5])
 
+##Bonus Exercises##
+
+#1a
+#this funciton takes in a 12 hour format time with am/pm
+#and returns the time in a 24hour format
+def twelveto24(time):
+    #the first if statement checks if the input is 'am'
+    #and if the hour of the time is '12'
+    #if it is true it will change the '12' to '00' for the 24 hour format
+    if time[-2:] == 'am' and time[:2] == '12':
+        return '00' + time[2:-2]
+        #the first elif statement removes the 'am'
+    elif time[-2:] == 'am':
+        return time [:-2]
+        #the second elif statement checks for 'pm' 
+        #and if the first two elements are 12
+    elif time[-2:] == 'pm' and time[:2] == '12':
+        return time[:-2]
+        #the else statement adds the 12 hours to the pm time
+        #and returns the time without the 'pm'
+    else:
+        return str(int(time[:2]) + 12) + time[2:5]
+
+#test arguments
+print(twelveto24('08:05 pm'))
+print(twelveto24('08:05 am'))
+print(twelveto24('12:05 pm'))
+print(twelveto24('12:05 am'))
+
+#1a extra bonus#
+def twentryfourtotwelve(time24):
+    if time24[:2] == '00':
+        return '12' 
+    elif int(time24[:2]) <= 11:
+        return time24.append('am')
+    elif time24[:2] == '12':
+        return time24.append('pm')
+    else:
+        return str(int(time24[:2]) - 12) + time24[2:8]
