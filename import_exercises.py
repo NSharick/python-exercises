@@ -146,4 +146,18 @@ print(least_common_fav_fruit(fav_fruit))
 
 #J
 #total number of unread messages for all users
+#strt a count at 0
+ur_messages = 0
+#loop through the profiles
+for user in profiles:
+    #loop through the characters with the key 'greetings'
+    for char in user['greeting']:
+        #if the character is a digit
+        if char.isdigit():
+            #turn the character into an integer and add it to the count
+            ur_messages += int(char)
+#print the total
+print(ur_messages)
+
+    
 
