@@ -220,12 +220,19 @@ print(twelveto24('12:05 pm'))
 print(twelveto24('12:05 am'))
 
 #1a extra bonus#
-def twentryfourtotwelve(time24):
-    if time24[:2] == '00':
-        return '12' 
-    elif int(time24[:2]) <= 11:
-        return time24.append('am')
-    elif time24[:2] == '12':
-        return time24.append('pm')
-    else:
-        return str(int(time24[:2]) - 12) + time24[2:8]
+#import the time library
+import time
+#create a variable to hold the 24 hour time value
+time24 = '13:00'
+#create a translateable variable using time functions that represents the 24 hour time value
+#striptime() parses the entered time value according to the format indicators 
+#(in this case %H for hour using the 24 hour clock, :, and %M for minutes)
+t = time.strptime(time24, "%H:%M")
+#create a variable that parses the above created variable acording to the format indicators and returns it as a string
+#(in this case %I for hour on a 12 hour clock, :, %M for minutes, and %p for either am or pm based on the give time value)
+time12 = time.strftime( "%I:%M %p", t)
+#print the created 12  hour clock time created
+print(time12)
+
+
+
