@@ -146,18 +146,27 @@ print(least_common_fav_fruit(fav_fruit))
 
 #J
 #total number of unread messages for all users
+#pull the greetings from the profiles so I can visualize the section of the data where I am pulling the message count from
+greetings = []
+for user in profiles:
+    greetings.append(user['greeting'])
+print(greetings)
+
+## total up the unread messages
 #strt a count at 0
 ur_messages = 0
 #loop through the profiles
 for user in profiles:
-    #loop through the characters with the key 'greetings'
-    for char in user['greeting']:
+    #loop through the characters with the key 'greetings' 
+    #use the .split() function to split the strings at the spaces so that the function will count two digit numbers as a whole
+    #instead of counting the numbers as two seperate digits (19 instead of 1 and 9)
+    for char in user['greeting'].split():
         #if the character is a digit
         if char.isdigit():
             #turn the character into an integer and add it to the count
             ur_messages += int(char)
 #print the total
 print(ur_messages)
+#returns 210 total unread messages
 
-    
 
