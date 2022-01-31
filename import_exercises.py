@@ -3,7 +3,6 @@
 
 #1a 
 #import the is_vowel function from my function_exercises.py
-from curses import ALL_MOUSE_EVENTS
 from function_exercises import is_vowel
 
 #test the function
